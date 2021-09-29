@@ -1,4 +1,3 @@
-   
 const Tx     = require('ethereumjs-tx').Transaction
 const Web3 = require('web3')
 const web3 = new Web3('https://ropsten.infura.io/v3/6f6b89c434f94ab68a1f252f4a8a874f')
@@ -37,8 +36,8 @@ const contractDeploymentAsync= async() => {
             let response= await web3.eth.sendSignedTransaction(raw)
             console.log("Transaction Hash:",response)
 
-			//const balance=await contract.methods.balanceOf(account2).encodeABI();
-	        //console.log("Total Supply",balance)
+			    const balance=await contract.methods.balanceOf(account2).call();
+	        console.log("Total Supply",balance)
         }
         catch(error)
         {
